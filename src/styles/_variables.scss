@@ -159,9 +159,9 @@ $enable-pointer-cursor-for-buttons:           true !default;
 /* border and border radius */
 $border-width:                1px !default;
 $border-color:                $gray-300 !default;
-$border-radius:               .25rem !default;
-$border-radius-lg:            .3rem !default;
-$border-radius-sm:            .2rem !default;
+$border-radius:               .4rem !default;
+$border-radius-lg:            .5rem !default;
+$border-radius-sm:            .3rem !default;
 
 
 /* Box shadow */
@@ -171,11 +171,11 @@ $box-shadow-lg:               0 1rem 3rem rgba($black, .175) !default;
 $box-shadow-inset:            inset 0 1px 2px rgba($black, .075) !default;
 
 
-/* ----- Buttons ----- */
+/* -------------- Buttons -------------- */
 /* Basic button */
 $btn-font-weight:             400;
-$btn-padding-y:               .375rem !default;
-$btn-padding-x:               .75rem !default;
+$btn-padding-y:               .4rem !default;
+$btn-padding-x:               1.2rem !default;
 $btn-font-family:             $font-family-base !default;
 $btn-font-size:               $font-size-base !default;
 $btn-line-height:             $line-height-base !default;
@@ -212,6 +212,34 @@ $btn-border-radius-lg:        $border-radius-lg !default;
 $btn-border-radius-sm:        $border-radius-sm !default;
 $btn-transition:              color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
 
+
+
+/* -------------- Alert -------------- */
+$alert-background-color:      $primary !default;
+$alert-width:                 20rem !default;
+
+$alert-margin-y:              .5rem !default;
+$alert-margin-x:              1rem !default;
+
+$alert-padding-y:             .5rem !default;
+$alert-padding-x:             1rem !default;
+
+$alert-border-radius:         $border-radius !default;
+$alert-border-width:          $border-width !default;
+$alert-box-shadow:            inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
+
+$alert-display:               flex !default;
+$alert-justify-content:       space-between !default;
+
+$alert-description-font-size: 0.8rem !default;
+$alert-description-font-weight: 300 !default;
+
+$alert-close-btn-border:      none !default;
+$alert-close-btn-background-color: transparent !default;            
+
+
+
+/* -------------- Menu -------------- */
 
 /* menu */
 $menu-border-width:            $border-width !default;

@@ -1,0 +1,39 @@
+.alert {
+    background-color:   $alert-background-color;
+    background-image:   none;
+    color:              $white;
+    width:              $alert-width;
+    padding:            $alert-padding-y $alert-padding-x;
+    margin:             $alert-margin-y $alert-margin-x;
+    box-shadow:         $alert-box-shadow;
+    border:             $btn-border-width solid transparent;
+    border-radius:      $alert-border-radius;
+    display:            $alert-display;
+    justify-content:    $alert-justify-content;
+
+    .description {
+        font-size:      $alert-description-font-size;
+        font-weight:    $alert-description-font-weight;
+    }
+
+    .close-btn {
+        background-color: $alert-close-btn-background-color;
+        border:           $alert-close-btn-border;
+    }
+}
+
+.alert-default {
+    @include alert-style($white, $gray-600, $gray-600)
+}
+
+.alert-success {
+    @include alert-style($success, $white, $white)
+}
+
+.alert-danger {
+    @include alert-style($danger, $white, $white)
+}
+
+.alert-warning {
+    @include alert-style($warning, $white, $white)
+}
