@@ -171,6 +171,9 @@ $box-shadow-lg:               0 1rem 3rem rgba($black, .175) !default;
 $box-shadow-inset:            inset 0 1px 2px rgba($black, .075) !default;
 
 
+
+
+
 /* -------------- Buttons -------------- */
 /* Basic button */
 $btn-font-weight:             400;
@@ -211,6 +214,8 @@ $btn-border-radius:           $border-radius !default;
 $btn-border-radius-lg:        $border-radius-lg !default;
 $btn-border-radius-sm:        $border-radius-sm !default;
 $btn-transition:              color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+
+
 
 
 
@@ -258,6 +263,9 @@ $menu-item-disabled-color:     $gray-600 !default;
 /* submenu */
 $submenu-box-shadow: 0 2px 4px 0 rgba(0,0,0,.12), 0 0 6px 0 rgba(0,0,0,.04);
 
+
+
+/* -------------- Input -------------- */
 
 /* input */
 $input-padding-y:                       $btn-padding-y !default;
@@ -307,6 +315,10 @@ $input-group-addon-color:               $input-color !default;
 $input-group-addon-bg:                  $gray-200 !default;
 $input-group-addon-border-color:        $input-border-color !default;
 
+
+
+
+/* -------------- Progress Bar -------------- */
 
 /* progress bar */
 $progress-font-size:                $font-size-base * .75 !default;
