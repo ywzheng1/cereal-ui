@@ -91,7 +91,7 @@ $headings-color:              null !default;
 $paragraph-margin-bottom:   1rem !default;
 
 
-// 字体其他部分 heading list hr 等等
+// Font other parts: heading list hr, etc
 $headings-margin-bottom:      $spacer / 2 !default;
 $headings-font-family:        null !default;
 $headings-font-style:         null !default;
@@ -159,9 +159,9 @@ $enable-pointer-cursor-for-buttons:           true !default;
 /* border and border radius */
 $border-width:                1px !default;
 $border-color:                $gray-300 !default;
-$border-radius:               .4rem !default;
-$border-radius-lg:            .5rem !default;
-$border-radius-sm:            .3rem !default;
+$border-radius:               .7rem !default;
+$border-radius-lg:            .8rem !default;
+$border-radius-sm:            .5rem !default;
 
 
 /* Box shadow */
@@ -176,21 +176,22 @@ $box-shadow-inset:            inset 0 1px 2px rgba($black, .075) !default;
 
 /* -------------- Buttons -------------- */
 /* Basic button */
-$btn-font-weight:             400;
-$btn-padding-y:               .4rem !default;
-$btn-padding-x:               1.2rem !default;
+$btn-font-weight:             500;
+$btn-letter-spacing:          0.1rem;
+$btn-padding-y:               .7rem !default;
+$btn-padding-x:               1.85rem !default;
 $btn-font-family:             $font-family-base !default;
 $btn-font-size:               $font-size-base !default;
 $btn-line-height:             $line-height-base !default;
 
 
 /* different size button with different font ize */
-$btn-padding-y-sm:            .25rem !default;
-$btn-padding-x-sm:            .5rem !default;
+$btn-padding-y-sm:            .5rem !default;
+$btn-padding-x-sm:            1rem !default;
 $btn-font-size-sm:            $font-size-sm !default;
 
-$btn-padding-y-lg:            .5rem !default;
-$btn-padding-x-lg:            1rem !default;
+$btn-padding-y-lg:            .9rem !default;
+$btn-padding-x-lg:            1.7rem !default;
 $btn-font-size-lg:            $font-size-lg !default;
 
 
@@ -199,7 +200,7 @@ $btn-border-width:            $border-width !default;
 
 
 /* button other property */
-$btn-box-shadow:              inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
+$btn-box-shadow:              inset 0 1px 0 rgba($white, .15), 3px 3px 10px rgba($gray-400, .4) !default;
 $btn-disabled-opacity:        .65 !default;
 
 
@@ -223,10 +224,7 @@ $btn-transition:              color .15s ease-in-out, background-color .15s ease
 $alert-background-color:      $primary !default;
 $alert-width:                 20rem !default;
 
-$alert-margin-y:              .5rem !default;
-$alert-margin-x:              1rem !default;
-
-$alert-padding-y:             .5rem !default;
+$alert-padding-y:             .6rem !default;
 $alert-padding-x:             1rem !default;
 
 $alert-border-radius:         $border-radius !default;

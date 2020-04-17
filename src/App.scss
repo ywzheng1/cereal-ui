@@ -1,0 +1,16 @@
+.app {
+
+  padding: 2rem;
+  
+  .button-group {
+    > * {
+      margin: 1rem 1rem;
+    }
+  }
+
+  .alert-group {
+    > * {
+      margin: 1rem 1rem;
+    }
+  }
+}
