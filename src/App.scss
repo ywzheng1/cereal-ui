@@ -13,4 +13,11 @@
       margin: 1rem 1rem;
     }
   }
+
+  .vertical-menus-group {
+    display: flex;
+    > * {
+      margin: 1rem 1rem;
+    }
+  }
 }

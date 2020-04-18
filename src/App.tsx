@@ -58,19 +58,13 @@ function App() {
 		<hr/>
 		<div className='menus'>
 			<h1>Menus</h1>
-			<Menu defaultIndex={0} onSelect={(index) => alert(index)}>
+			<Menu defaultIndex='0' onSelect={(index) => alert(index)}>
 				<MenuItem>cool link</MenuItem>
 				<MenuItem disabled>cool link 2</MenuItem>
 				<MenuItem>cool link 3</MenuItem>
 			</Menu>
 
-			<Menu defaultIndex={0} mode="vertical" onSelect={(index) => alert(index)}>
-				<MenuItem>cool link</MenuItem>
-				<MenuItem disabled>cool link 2</MenuItem>
-				<MenuItem>cool link 3</MenuItem>
-			</Menu>
-
-			<Menu defaultIndex={0} onSelect={(index) => alert(index)}>
+			<Menu defaultIndex='0' onSelect={(index) => alert(index)}>
 				<MenuItem>cool link</MenuItem>
 				<MenuItem disabled>cool link 2</MenuItem>
 				<SubMenu title='dropdown'>
@@ -81,16 +75,35 @@ function App() {
 				<MenuItem>cool link 3</MenuItem>
 			</Menu>
 
-			<Menu defaultIndex={0} mode='vertical' onSelect={(index) => alert(index)}>
-				<MenuItem>cool link</MenuItem>
-				<MenuItem disabled>cool link 2</MenuItem>
-				<SubMenu title='dropdown'>
-					<MenuItem>dropdown 1</MenuItem>
-					<MenuItem>dropdown 2</MenuItem>
-					<MenuItem>dropdown 3</MenuItem>
-				</SubMenu>
-				<MenuItem>cool link 3</MenuItem>
-			</Menu>
+			<div className='vertical-menus-group'>
+				<Menu defaultIndex='0' mode="vertical" onSelect={(index) => alert(index)}>
+					<MenuItem>cool link</MenuItem>
+					<MenuItem disabled>cool link 2</MenuItem>
+					<MenuItem>cool link 3</MenuItem>
+				</Menu>
+				
+				<Menu defaultIndex='0' mode='vertical' onSelect={(index) => alert(index)}>
+					<MenuItem>cool link</MenuItem>
+					<MenuItem disabled>cool link 2</MenuItem>
+					<SubMenu title='dropdown'>
+						<MenuItem>dropdown 1</MenuItem>
+						<MenuItem>dropdown 2</MenuItem>
+						<MenuItem>dropdown 3</MenuItem>
+					</SubMenu>
+					<MenuItem>cool link 3</MenuItem>
+				</Menu>
+
+				<Menu defaultIndex='0' mode='vertical' onSelect={(index) => alert(index)} defaultOpenSubMenus={['2']}>
+					<MenuItem>cool link</MenuItem>
+					<MenuItem disabled>cool link 2</MenuItem>
+					<SubMenu title='dropdown default open'>
+						<MenuItem>dropdown 1</MenuItem>
+						<MenuItem>dropdown 2</MenuItem>
+						<MenuItem>dropdown 3</MenuItem>
+					</SubMenu>
+					<MenuItem>cool link 3</MenuItem>
+				</Menu>
+			</div>
 		</div>
 	</div>
   );
