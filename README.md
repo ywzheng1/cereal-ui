@@ -1,4 +1,4 @@
-# :fish_cake: Cereal UI
+# :cookie: Cereal UI
 React UI components.
 <br/>
 
