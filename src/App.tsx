@@ -5,6 +5,7 @@ import Menu from './components/Menu/menu';
 import MenuItem from './components/Menu/menuItem';
 
 import './App.scss';
+import SubMenu from './components/Menu/subMenu';
 
 
 function App() {
@@ -57,16 +58,38 @@ function App() {
 		<hr/>
 		<div className='menus'>
 			<h1>Menus</h1>
-			<Menu defaultIndex={0}>
-				<MenuItem index={0}>cool link</MenuItem>
-				<MenuItem index={1} disabled>cool link 2</MenuItem>
-				<MenuItem index={2}>cool link 3</MenuItem>
+			<Menu defaultIndex={0} onSelect={(index) => alert(index)}>
+				<MenuItem>cool link</MenuItem>
+				<MenuItem disabled>cool link 2</MenuItem>
+				<MenuItem>cool link 3</MenuItem>
 			</Menu>
 
-			<Menu defaultIndex={0} mode="vertical">
-				<MenuItem index={0}>cool link</MenuItem>
-				<MenuItem index={1} disabled>cool link 2</MenuItem>
-				<MenuItem index={2}>cool link 3</MenuItem>
+			<Menu defaultIndex={0} mode="vertical" onSelect={(index) => alert(index)}>
+				<MenuItem>cool link</MenuItem>
+				<MenuItem disabled>cool link 2</MenuItem>
+				<MenuItem>cool link 3</MenuItem>
+			</Menu>
+
+			<Menu defaultIndex={0} onSelect={(index) => alert(index)}>
+				<MenuItem>cool link</MenuItem>
+				<MenuItem disabled>cool link 2</MenuItem>
+				<SubMenu title='dropdown'>
+					<MenuItem>dropdown 1</MenuItem>
+					<MenuItem>dropdown 2</MenuItem>
+					<MenuItem>dropdown 3</MenuItem>
+				</SubMenu>
+				<MenuItem>cool link 3</MenuItem>
+			</Menu>
+
+			<Menu defaultIndex={0} mode='vertical' onSelect={(index) => alert(index)}>
+				<MenuItem>cool link</MenuItem>
+				<MenuItem disabled>cool link 2</MenuItem>
+				<SubMenu title='dropdown'>
+					<MenuItem>dropdown 1</MenuItem>
+					<MenuItem>dropdown 2</MenuItem>
+					<MenuItem>dropdown 3</MenuItem>
+				</SubMenu>
+				<MenuItem>cool link 3</MenuItem>
 			</Menu>
 		</div>
 	</div>
