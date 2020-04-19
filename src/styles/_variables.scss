@@ -229,7 +229,7 @@ $alert-padding-x:             1rem !default;
 
 $alert-border-radius:         $border-radius !default;
 $alert-border-width:          $border-width !default;
-$alert-box-shadow:            inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
+$alert-box-shadow:            inset 0 1px 0 rgba($white, .15), 3px 3px 10px rgba($gray-400, .4) !default;
 
 $alert-display:               flex !default;
 $alert-justify-content:       space-between !default;
