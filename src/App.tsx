@@ -110,15 +110,15 @@ function App() {
 		<hr/>
 		<div className='tabs-section'>
 			<Tabs defaultIndex={0}>
-				<TabItem index={0} label='card1'>this is card one</TabItem>
-				<TabItem index={1} label='card2'>this is card two</TabItem>
-				<TabItem index={2} label='card3' disabled={true}>this is card three</TabItem>
+				<TabItem label='card1'>this is card one</TabItem>
+				<TabItem label='card2'>this is card two</TabItem>
+				<TabItem label='card3'>this is card three</TabItem>
 			</Tabs>
 
 			<Tabs defaultIndex={0} type='card'>
-				<TabItem index={0} label='card1'>this is card one</TabItem>
-				<TabItem index={1} label='card2'>this is card two</TabItem>
-				<TabItem index={2} label='card3' disabled={true}>this is card three</TabItem>
+				<TabItem label='card1'>this is card one</TabItem>
+				<TabItem label='card2'>this is card two</TabItem>
+				<TabItem label='card3' disabled={true}>this is card three</TabItem>
 			</Tabs>
 		</div>
 	</div>
