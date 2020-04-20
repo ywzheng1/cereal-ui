@@ -263,6 +263,18 @@ $submenu-box-shadow: 0 2px 4px 0 rgba(0,0,0,.12), 0 0 6px 0 rgba(0,0,0,.04);
 
 
 
+
+/* -------------- Tabs -------------- */
+$nav-tabs-border-width:                1px !default;
+$nav-tabs-link-active-color:           $primary !default;
+
+$nav-tabs-link-active-bg:              $primary !default;
+$nav-tabs-link-active-bg:              $body-bg !default;
+$nav-tabs-link-active-border-color:    $gray-300 $gray-300 $nav-tabs-link-active-bg !default;
+
+$nav-tabs-border-radius:               $border-radius !default;
+
+
 /* -------------- Input -------------- */
 
 /* input */

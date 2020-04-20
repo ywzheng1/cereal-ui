@@ -52,3 +52,11 @@
         color:  $close-btn-color;
     }
 }
+
+
+
+// --------------- Tabs --------------- //
+@mixin border-top-radius($raduis) {
+    border-top-left-radius: $raduis / 2;
+    border-top-right-radius: $raduis / 2;
+  }

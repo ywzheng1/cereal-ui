@@ -6,6 +6,8 @@ import MenuItem from './components/Menu/menuItem';
 
 import './App.scss';
 import SubMenu from './components/Menu/subMenu';
+import Tabs from './components/Tab/tabs';
+import TabItem from './components/Tab/tabItem';
 
 
 function App() {
@@ -104,6 +106,20 @@ function App() {
 					<MenuItem>cool link 3</MenuItem>
 				</Menu>
 			</div>
+		</div>
+		<hr/>
+		<div className='tabs-section'>
+			<Tabs defaultIndex={0}>
+				<TabItem index={0} label='card1'>this is card one</TabItem>
+				<TabItem index={1} label='card2'>this is card two</TabItem>
+				<TabItem index={2} label='card3' disabled={true}>this is card three</TabItem>
+			</Tabs>
+
+			<Tabs defaultIndex={0} type='card'>
+				<TabItem index={0} label='card1'>this is card one</TabItem>
+				<TabItem index={1} label='card2'>this is card two</TabItem>
+				<TabItem index={2} label='card3' disabled={true}>this is card three</TabItem>
+			</Tabs>
 		</div>
 	</div>
   );

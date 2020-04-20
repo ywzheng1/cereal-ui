@@ -1,0 +1,61 @@
+.cereal-tabs {
+
+    .cereal-tabs-nav {
+        display:         flex;
+        flex-wrap:       wrap;
+        padding-left:    0;
+        margin-bottom:   0;
+        list-style:      none;
+        border-bottom:   $nav-tabs-border-width solid $gray-400;
+
+        .cereal-tabs-nav-item {
+            display:     block;
+            padding:     0.5rem 1rem;
+            cursor:      pointer;
+
+            &:hover,
+            &:focus {
+                color:   $primary;
+            }
+
+            &.is-active {
+                color:   $primary;
+            }
+
+            &.disabled, &[disabled] {
+                cursor:   not-allowed;
+                color:    lighten($color: $gray-700, $amount: 30);
+                > * {
+                    pointer-events: none;
+                }
+            }
+        }
+    }
+
+    .cereal-tabs-panel {
+        padding: 0.5rem 0;
+    }
+
+    .nav-line {
+        .cereal-tabs-nav-item {
+          &.is-active {
+            border-bottom: $nav-tabs-border-width * 2.5 solid  $nav-tabs-link-active-color;
+          }   
+        }  
+      }
+      
+    .nav-card {
+        .cereal-tabs-nav-item {
+            border:         $nav-tabs-border-width solid transparent;
+            margin-bottom:  -$nav-tabs-border-width;
+
+            &.is-active {
+                color: $white;
+                @include           border-top-radius($nav-tabs-border-radius);
+                background-color:  $nav-tabs-link-active-bg;
+                border-color:      $nav-tabs-link-active-border-color;
+            }   
+        }  
+    }
+
+}
