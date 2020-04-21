@@ -58,7 +58,7 @@ const Tabs: React.FC<TabProps> = (props) => {
     }
 
     return (
-        <div className={tabClass} >
+        <div className={tabClass} data-testid='test-tabs'>
             <ul className={navClass}>
                 {renderNav()}
             </ul>
