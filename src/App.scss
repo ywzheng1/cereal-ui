@@ -2,31 +2,19 @@
 
   padding: 2rem;
   
-  .button-group {
-    > * {
-      margin: 1rem 1rem;
-    }
-  }
-
+  .button-group,
   .alert-group {
     > * {
       margin: 1rem 1rem;
     }
   }
 
-  .vertical-menus-group {
+  .vertical-menus-group,
+  .tabs-section,
+  .icons-section {
     display: flex;
     > * {
       margin: 1rem 1rem;
     }
-  }
-
-  .tabs-section {
-    display: flex;
-
-    > * {
-      margin: 1rem 1rem;
-    }
-    
   }
 }

@@ -3,12 +3,15 @@ import Button, { ButtonType, ButtonSize } from './components/Button/button';
 import Alert, { AlertType } from './components/Alert/alert';
 import Menu from './components/Menu/menu';
 import MenuItem from './components/Menu/menuItem';
-
-import './App.scss';
 import SubMenu from './components/Menu/subMenu';
 import Tabs from './components/Tab/tabs';
 import TabItem from './components/Tab/tabItem';
+import Icon from './components/Icon/icon';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import './App.scss';
 
+library.add(fas)
 
 function App() {
 
@@ -120,6 +123,11 @@ function App() {
 				<TabItem label='card2'>this is card two</TabItem>
 				<TabItem label='card3' disabled={true}>this is card three</TabItem>
 			</Tabs>
+		</div>
+		<div className='icons-section'>
+			<Icon icon='coffee' theme='danger' size='2x'/>
+			<Icon icon='arrow-down' theme='primary' size='2x'/>
+			<Icon icon='book' theme='info' size='2x'/>
 		</div>
 	</div>
   );
