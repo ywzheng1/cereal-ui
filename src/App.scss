@@ -9,12 +9,27 @@
     }
   }
 
-  .vertical-menus-group,
   .tabs-section,
   .icons-section {
-    display: flex;
     > * {
       margin: 1rem 1rem;
     }
+
+    .tabs-section-inner {
+      display: flex;
+      > * {
+        margin: 1rem 1rem;
+      }
+    }
+  }
+
+
+  .vertical-menus-group {
+    display: flex;
+
+    > * {
+      margin: 1rem 1rem;
+    }
+    
   }
 }
