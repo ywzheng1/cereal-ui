@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
-import Button from '../Button/button';
+import Transition from '../Transition/transition'
+import Icon from '../Icon/icon'
 
 export enum AlertType {
     Success = 'success',
@@ -36,36 +37,31 @@ const Alert: React.FC<BaseAlertProps> = (props) => {
         setShow(!show)
       }
 
-    if(show) {
-        return(
-            <div
-                className={classes}
-                data-testid='alert'
-            >
+    return(
+
+        <Transition
+            in={show}
+            timeout={3000}
+            animation='zoom-in-top'
+        >
+            <div className={classes} data-testid='alert'>
                 <div>
                     {message}
                     { description && <div className='description'>{description}</div>}
                 </div>
-                { closable === true && 
-                    <span
-                        data-testid='close-btn'
-                        className='close-btn'
-                        onClick={handleClose}
-                    >
-                        x
+                { closable && 
+                    <span data-testid='close-btn' className='close-btn' onClick={handleClose}>
+                        <Icon icon='times'/>
                     </span>
                 }
             </div>
-        )
-    }
-    return(
-        <Button onClick={handleClose}>Show Alert</Button>
+        </Transition>
     )
 }
 
 
 Alert.defaultProps = {
-    closable: false,
+    closable: true,
     alertType:  AlertType.Default
 }
 
