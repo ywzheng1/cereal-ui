@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, ButtonHTMLAttributes, AnchorHTMLAttributes } from 'react';
 import classNames from 'classnames';
 
 export type ButtonSize = 'lg' | 'sm'
@@ -6,18 +6,27 @@ export type ButtonType = 'primary' | 'default' | 'danger' | 'link'
 
 interface BaseButtonProps {
     className?: string;
+    /** Set button disable */
     disabled?:  boolean;
+    /** Set button size */
     size?:      ButtonSize;
+    /** Set button type: primary, default, danger, link */
     btnType?:   ButtonType;
     children:   React.ReactNode;
     href?:      string;
 }
 
-type NativeButtonProps = BaseButtonProps & React.ButtonHTMLAttributes<HTMLElement>
-type AnchorButtonProps = BaseButtonProps & React.AnchorHTMLAttributes<HTMLElement>
+type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>
+type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
-
-const Button: React.FC<ButtonProps> = (props) => {
+/**
+ * Deafult button component
+ * ## How to import 
+ * ~~~js
+ * import { Button } from 'cereal-ui'
+ * ~~~
+ */
+export const Button: FC<ButtonProps> = (props) => {
     const { btnType, className, disabled, size, children, href, ...restProps } = props
 
     // btn, btn-lg, btn-primary

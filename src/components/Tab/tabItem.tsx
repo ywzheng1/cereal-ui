@@ -1,24 +1,20 @@
-import React from 'react';
-import classNames from 'classnames';
+import React, { FC } from 'react';
 
 export interface TabItemProps {
-    index?: number;
-    label?: string | React.ReactElement;
-    className?: string;
-    disabled?: boolean;
+    /** Tab card's name */
+    label: string | React.ReactElement;
+    /** If tab is disabled */
+    disabled?: boolean
 }
 
-const TabItem: React.FC<TabItemProps> = ({children, className}) => {
-
-    const classes = classNames('cereal-tabs-panel', className)
+export const TabItem: FC<TabItemProps> = ({children}) => {
 
     return(
-        <div className={classes}>
+        <div className='cereal-tabs-panel'>
             {children}
         </div>
     )
 }
 
-TabItem.displayName = 'TabItem'
 
 export default TabItem;

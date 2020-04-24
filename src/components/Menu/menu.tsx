@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react'
+import React, { FC, useState, createContext, CSSProperties, FunctionComponentElement } from 'react'
 import classNames from 'classnames'
 import { MenuItemProps } from './menuItem'
 
@@ -9,7 +9,7 @@ export interface MenuProps {
     defaultIndex?: string;
     className?: string;
     mode?: MenuMode;
-    style ?: React.CSSProperties;
+    style ?: CSSProperties;
     onSelect?: SelectCallback;
     defaultOpenSubMenus?: string[];
 }
@@ -23,7 +23,7 @@ interface IMenuContext {
 
 export const MenuContext = createContext<IMenuContext>({index: '0'})
 
-const Menu: React.FC<MenuProps> = (props) => {
+export const Menu: FC<MenuProps> = (props) => {
     const { defaultIndex, className, mode, style, onSelect, children, defaultOpenSubMenus } = props
     const [ currentActive, setActive ] = useState(defaultIndex)
 
@@ -48,7 +48,7 @@ const Menu: React.FC<MenuProps> = (props) => {
 
     const renderChildren = () => {
         return React.Children.map(children, (child, index) => {
-            const childElement = child as React.FunctionComponentElement<MenuItemProps>
+            const childElement = child as FunctionComponentElement<MenuItemProps>
             const { displayName } = childElement.type
             if (displayName === 'MenuItem' || displayName === 'SubMenu') {
                 return React.cloneElement(childElement, {
@@ -75,4 +75,4 @@ Menu.defaultProps = {
     defaultOpenSubMenus: []
 }
 
-export default Menu
+export default Menu;

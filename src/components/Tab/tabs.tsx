@@ -1,15 +1,29 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import classNames from 'classnames';
 import { TabItemProps } from './tabItem'
 
 export interface TabProps {
+    /** Default active tab */
     defaultIndex?: number;
     className?: string;
     onSelect?: (selectedIndex: number) => void;
     type?: 'line' | 'card';
 }
 
-const Tabs: React.FC<TabProps> = (props) => {
+
+/**
+ * Tab Component
+ * Provided a section with switchable content, keep screen clean
+ * 
+ * ### Import method
+ * 
+ * ~~~js
+ * import { Tabs } from 'cereal-ui'
+ * ~~~
+ */
+
+
+export const Tabs: FC<TabProps> = (props) => {
     const { defaultIndex, className, onSelect, children, type } = props
 
     const [ activeIndex, setActiveIndex ] = useState(defaultIndex)
@@ -76,4 +90,4 @@ Tabs.defaultProps = {
     type: 'line'
   }
 
-export default Tabs
+export default Tabs;
