@@ -15,6 +15,7 @@ In the project directory:
 
 `npm test` : run unit test
 
+<br />  
 
 ## Usages
 ```
