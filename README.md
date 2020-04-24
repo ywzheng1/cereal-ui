@@ -2,6 +2,7 @@
 React UI components.
 <br/>
 
+:link: To view already built component use storybook, checkout this link: [link](https://ywzheng1.github.io/cereal-ui/?path=/story/welcome--welcome)
 #####  :open_file_folder: In the project directory, you can run:
 `npm start` : runs the app in the development mode. Open http://localhost:3000 to view it in the browser.
 

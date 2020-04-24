@@ -15,7 +15,6 @@ const defaultMenu = () => (
         <SubMenu title='Dropdown Menu'>
             <MenuItem>dropdown 1</MenuItem>
             <MenuItem>dropdown 2</MenuItem>
-            <MenuItem>dropdown 3</MenuItem>
         </SubMenu>
     </Menu>
 )
@@ -28,7 +27,6 @@ const verticalMenu = () => (
         <SubMenu title='Dropdown Menu'>
             <MenuItem>dropdown 1</MenuItem>
             <MenuItem>dropdown 2</MenuItem>
-            <MenuItem>dropdown 3</MenuItem>
         </SubMenu>
     </Menu>
 )
@@ -41,7 +39,6 @@ const verticalDefaultOpen = () => (
         <SubMenu title='Dropdown Menu'>
             <MenuItem>dropdown 1</MenuItem>
             <MenuItem>dropdown 2</MenuItem>
-            <MenuItem>dropdown 3</MenuItem>
         </SubMenu>
     </Menu>
 )

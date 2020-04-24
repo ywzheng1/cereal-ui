@@ -5,8 +5,9 @@ export type ButtonSize = 'lg' | 'sm'
 export type ButtonType = 'primary' | 'default' | 'danger' | 'link'
 
 interface BaseButtonProps {
+    /** Give button extra className for customization */
     className?: string;
-    /** Set button disable */
+    /** Make button disable */
     disabled?:  boolean;
     /** Set button size */
     size?:      ButtonSize;
@@ -20,8 +21,10 @@ type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>
 type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
 /**
- * Deafult button component
- * ## How to import 
+ * ## Button Component  
+ * Most common component on websites, supoort all HTML button and a tag's property
+ * #### How to import 
+ * 
  * ~~~js
  * import { Button } from 'cereal-ui'
  * ~~~

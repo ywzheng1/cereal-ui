@@ -15,6 +15,7 @@ const wrapperStyle = {
 const storyWrapper = (stroyFn) => (
   <div style={wrapperStyle}>
     <h2>Component Display</h2>
+    <hr />
     {stroyFn()}
   </div>
 )

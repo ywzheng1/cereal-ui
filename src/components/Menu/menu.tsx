@@ -6,11 +6,15 @@ type MenuMode = 'horizontal' | 'vertical'
 type SelectCallback = (selectedIndex: string) => void;
 
 export interface MenuProps {
+    /** default active menu */
     defaultIndex?: string;
     className?: string;
+    /** menu type: horizontal or vertical */
     mode?: MenuMode;
     style ?: CSSProperties;
+    /** when select menu, trigger a callback */
     onSelect?: SelectCallback;
+    /** a index array, decide which submenu is default open */
     defaultOpenSubMenus?: string[];
 }
 
@@ -22,6 +26,20 @@ interface IMenuContext {
 }
 
 export const MenuContext = createContext<IMenuContext>({index: '0'})
+
+
+
+/**
+ * Provide website navigation, support two types of menu: horizonal and vertical  
+ * Also support submenu, with default open option  
+ * 
+ * ### Import method
+ * 
+ * ~~~js
+ * import { Menu } from 'cereal-ui'
+ * // Then support MenuItem and SubMenu component
+ * ~~~
+ */
 
 export const Menu: FC<MenuProps> = (props) => {
     const { defaultIndex, className, mode, style, onSelect, children, defaultOpenSubMenus } = props

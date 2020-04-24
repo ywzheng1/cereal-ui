@@ -4,8 +4,11 @@ import { MenuContext } from './menu'
 
 export interface MenuItemProps {
     index?: string;
+    /** if selection is not allow to click */
     disabled?: boolean;
+    /** give extra className to add more customization ability */
     className?: string;
+    /** customize style */
     style?: CSSProperties;
 }
 

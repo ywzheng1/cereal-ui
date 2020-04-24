@@ -9,19 +9,19 @@ const defaultButton = () => (
 )
 
 const buttonWithSize = () => (
-    <>
+    <div>
         <Button size='lg'>large button</Button>
         <Button size='sm'>small button</Button>
-    </>
+    </div>
 )
 
 const buttonWithType = () => (
-    <>
+    <div>
         <Button btnType='primary'>Primary</Button>
         <Button btnType='default'>Default</Button>
         <Button btnType='danger'>Danger</Button>
         <Button btnType='link' href='https://google.com'>Link Button</Button>
-    </>
+    </div>
 )
 
 storiesOf('Button Component', module)
