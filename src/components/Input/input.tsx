@@ -47,11 +47,12 @@ export const Input: FC<InputProps> = (props) => {
           return ''
         }
         return value
-      }
-      if('value' in props) {
+    }
+
+    if('value' in props) {
         delete restProps.defaultValue
         restProps.value = fixControlledValue(props.value)
-      }
+    }
 
     return(
         <div className={classes} style={style}>

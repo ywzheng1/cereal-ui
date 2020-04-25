@@ -2,14 +2,21 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 
-import Input from './input'
+import { Input } from './input'
+
+// const ControlledInput = () => {
+//     const [value, setValue] = useState()
+//     return <Input value={value} defaultValue={value} onChange={(e) => {setValue(e.target.value)}}/>
+//   }
 
 const defaultInput = () => (
-    <Input 
-        style={{width: '300px'}}
-        placeholder='placeholder text' 
-        onChange={action('changed')} 
-    />
+    <>
+        <Input 
+            style={{width: '300px'}}
+            placeholder='placeholder text' 
+            onChange={action('changed')} 
+        />
+    </>
 )
 
 const disabledInput = () => (
