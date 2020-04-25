@@ -5,7 +5,7 @@ import Icon from '../Icon/icon'
 
 export type InputSize = 'lg' | 'sm'
 
-interface InputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size'> {
+export interface InputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size'> {
     /** set input to disabled */
     disabled?: boolean;
     /** set input size, support lg and sm */
