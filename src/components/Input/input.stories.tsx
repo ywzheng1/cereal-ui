@@ -1,31 +1,65 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
 
 import Input from './input'
 
 const defaultInput = () => (
-    <Input placeholder='placeholder text'/>
+    <Input 
+        style={{width: '300px'}}
+        placeholder='placeholder text' 
+        onChange={action('changed')} 
+    />
 )
 
 const disabledInput = () => (
-    <Input placeholder='placeholder text' disabled={true}/>
+    <Input 
+        style={{width: '300px'}}
+        placeholder='placeholder text' 
+        disabled={true}
+    />
 )
 
 const inputWithIcon = () => (
-    <Input placeholder='disabled' icon='search' />
+    <Input 
+        style={{width: '300px'}}
+        placeholder='placeholder with icon' 
+        icon='search' 
+        onChange={action('changed')} 
+    />
 )
 
 const inputWithDifferentSizes = () => (
     <>
-        <Input placeholder='placeholder text' size='lg'/>
-        <Input placeholder='placeholder text' size='sm'/>
+        <Input 
+            style={{width: '300px'}}
+            placeholder='placeholder text' 
+            size='lg'
+            onChange={action('changed')}
+        />
+        <Input 
+            style={{width: '300px'}}
+            placeholder='placeholder text' 
+            size='sm'
+            onChange={action('changed')}
+        />
     </>
 )
 
 const inputWithPrependAndAppend = () => (
     <>
-        <Input placeholder='placeholder text' prepend='$' />
-        <Input placeholder='placeholder text' append='.com'/>
+        <Input 
+            style={{width: '300px'}}
+            placeholder='placeholder text' 
+            prepend='$' 
+            onChange={action('changed')}
+        />
+        <Input 
+            style={{width: '300px'}}
+            placeholder='placeholder text' 
+            append='.com'
+            onChange={action('changed')}
+        />
     </>
 )
 
