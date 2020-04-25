@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
-import Button from './components/Button/button';
-import Alert, { AlertType } from './components/Alert/alert';
-import Menu from './components/Menu/menu';
-import MenuItem from './components/Menu/menuItem';
-import SubMenu from './components/Menu/subMenu';
-import Tabs from './components/Tab/tabs';
-import TabItem from './components/Tab/tabItem';
-import Icon from './components/Icon/icon';
+import React, { useState } from 'react'
+import Button from './components/Button/button'
+import Alert, { AlertType } from './components/Alert/alert'
+import Menu from './components/Menu/menu'
+import MenuItem from './components/Menu/menuItem'
+import SubMenu from './components/Menu/subMenu'
+import Tabs from './components/Tab/tabs'
+import TabItem from './components/Tab/tabItem'
+import Icon from './components/Icon/icon'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import Transition from './components/Transition/transition'
+import Input from './components/Input/input'
 
 import './App.scss';
 
@@ -155,6 +156,15 @@ function App() {
 						<p>Some content</p>
 					</div>
 				</Transition>
+			</div>
+			<hr/>
+			<div>
+				<h1>Inputs</h1>
+				<Input placeholder='placeholder' prepend='$'/>
+				<Input placeholder='placeholder' icon='search'/>
+				<Input placeholder='placeholder' append='.com'/>
+				<Input placeholder='placeholder2' size='sm'/>
+				<Input placeholder='placeholder3' disabled={true}/>
 			</div>
 		</div>
 	);
