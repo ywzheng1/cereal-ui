@@ -5,6 +5,7 @@ import Icon from '../Icon/icon'
 import useDebounce from '../../hooks/useDebounce'
 import useClickOutside from '../../hooks/useClickOutside'
 
+
 interface DataSourceObject {
     value: string;
 }
@@ -98,7 +99,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
 
     const generateDropdown = () => {
         return (
-            <ul>
+            <ul className='cereal-suggestion-list'>
                 {suggestions.map((item, index) => {
                     const classes = classNames('suggestion-item', {
                         'item-highlighted': index === highlightIndex
