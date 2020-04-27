@@ -13,10 +13,24 @@ interface DataSourceObject {
 export type DataSourceType<T = {}> = T & DataSourceObject
 
 export interface AutoCompleteProps extends Omit<InputProps, 'onSelect'> {
+    /** return suggestion list, support local data and aysnc promise */
     fetchSuggestions: (str: string) => DataSourceType[] | Promise<DataSourceType[]>;
+    /** when select from suggestion list, trigger this call back */
     onSelect?: (item: DataSourceType) => void;
+    /** Optional render option, can customize suggestion list looks */
     renderOption?: (item: DataSourceType) => ReactElement;
 }
+
+/**
+ * Input support auto complete feature. Support async also.
+ * Also support keyboard selections.
+ * 
+ * #### How to import 
+ * 
+ * ~~~js
+ * import { AutoComplete } from 'cereal-ui'
+ * ~~~
+ */
 
 export const AutoComplete: FC<AutoCompleteProps> = (props) => {
     const { fetchSuggestions, onSelect, renderOption, value,...restProps } = props
