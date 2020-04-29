@@ -1,0 +1,10 @@
+.cereal-select {
+    .cereal-select-dropdown {
+        display: none;
+    }
+
+    &.menu-is-open .cereal-select-dropdown {
+        list-style: none;
+        display: inline-block;
+    }
+}
