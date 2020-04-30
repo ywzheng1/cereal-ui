@@ -5,14 +5,14 @@ import Input from '../Input/input'
 import Transition from '../Transition/transition'
 import Icon from '../Icon/icon'
 
-export interface SelectProps extends Omit<SelectHTMLAttributes<HTMLElement>, 'onChange'> {
+export interface SelectProps {
+    disabled?: boolean;
     defaultValue?: string | string[];
     className?:    string;
     placeholder?:  string;
     multiple?:     boolean;
     name?:         string;
     onChange?:        (selectedValue: string, selectedValues: string[]) => void;
-    // onChange?:     (selectedValue: string) => void;
     onVisibleChange?: (visible: boolean) => void;
 }
 
@@ -27,16 +27,14 @@ export const SelectContext = createContext<ISelectContext>({selectedValues: []})
 
 export const Select: FC<SelectProps> = (props) => {
     const {
-        defaultValue, 
-        className, 
+        defaultValue,
         placeholder, 
         disabled, 
         multiple, 
         name, 
         onChange, 
         onVisibleChange,
-        children,
-        ...restProps
+        children
     } = props
 
     const [ menuOpen, setOpen ] = useState(false)
