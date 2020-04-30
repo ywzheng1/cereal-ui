@@ -1,4 +1,7 @@
-import React, { FC, Children } from 'react'
+import React, { FC, useContext } from 'react'
+import classNames from 'classnames'
+import { SelectContext } from './select'
+import Icon from '../Icon/icon'
 
 export interface OptionProps {
     index?:    string;
@@ -7,13 +10,29 @@ export interface OptionProps {
     disabled?: boolean;
 }
 
-export const Option: FC<OptionProps> = ({value, children}) => {
+export const Option: FC<OptionProps> = ({index, value, label, disabled, children}) => {
 
-    // const {index, value, label, disabled} = props
+    const context = useContext(SelectContext)
+    const isSelected = context.selectedValues.includes(value)
+
+    const classes = classNames('cereal-select-item', {
+        'is-disabled': disabled,
+        'is-selected': isSelected,
+    })
+
+    const handleClick = (e: React.MouseEvent, value: string, isSelected: boolean) => {
+        console.log(isSelected)
+        if(context.onSelect && !disabled) {
+            context.onSelect(value, isSelected)
+        }
+    }
 
     return(
-        // <option value={value}>{value}, {index}</option>
-        <div>{value}</div>
+        
+        <li key={index} className={classes} onClick={(e) => handleClick(e, value, isSelected)}>
+            {children || (label? label: value)}
+            { context.multiple && isSelected && <span> <Icon icon="check" /> </span>}
+        </li>
     )
 }
 
