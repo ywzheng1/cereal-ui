@@ -295,6 +295,7 @@ $input-font-family:                     $btn-font-family !default;
 $input-font-size:                       $btn-font-size !default;
 $input-font-weight:                     $font-weight-base !default;
 $input-line-height:                     $btn-line-height !default;
+$input-wrapper-margin-bottom:           30px !default;
 
 $input-padding-y-sm:                    $btn-padding-y-sm !default;
 $input-padding-x-sm:                    $btn-padding-x-sm !default;
@@ -335,6 +336,17 @@ $input-transition:                      border-color .3s ease-in-out, box-shadow
 $input-group-addon-color:               $input-color !default;
 $input-group-addon-bg:                  $gray-200 !default;
 $input-group-addon-border-color:        $input-border-color !default;
+
+
+
+/* -------------- Select -------------- */
+$select-border-radius:                  $border-radius !default;
+
+$select-disabled-item-color:            $gray-400 !default;
+$select-disabled-bg:                    $gray-200 !default;
+
+$selected-tag-border:                   1px solid lighten($primary, 30%) !default;
+$selected-tag-bg:                       lighten($primary, 10%);
 
 
 

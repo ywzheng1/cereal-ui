@@ -11,6 +11,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import Transition from './components/Transition/transition'
 import Input from './components/Input/input'
+import Select from './components/Select/select'
+import Option from './components/Select/option'
 
 import './App.scss';
 
@@ -165,6 +167,24 @@ function App() {
 				<Input placeholder='placeholder' append='.com'/>
 				<Input placeholder='placeholder2' size='sm'/>
 				<Input placeholder='placeholder3' disabled={true}/>
+			</div>
+			<hr/>
+			<div>
+			<h1>Select</h1>
+			<Select multiple={true}>
+				<Option value='1' />
+				<Option value='2' />
+				<Option value='3' />
+				<Option value='4' disabled />
+			</Select>
+
+			<Select disabled>
+				<Option value='1' />
+				<Option value='2' />
+				<Option value='3' />
+				<Option value='4' disabled />
+			</Select>
+
 			</div>
 		</div>
 	);

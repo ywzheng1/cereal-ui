@@ -3,36 +3,66 @@
 
     input {
         &[readonly] {
-            background-color: $white;
+            background-color: transparent;
             cursor: pointer;
             // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
             opacity: 1;
         }
-        &:disabled {
-            background-color: $input-disabled-bg;
-            border-color: $input-disabled-border-color;
-            // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
-            opacity: 1;
-            cursor: not-allowed;
+    }
+
+    &.is-disabled,
+    &[disabled] {
+        cursor:     not-allowed;
+        box-shadow: none;
+        background-color: $select-disabled-bg;
+        border-radius: $select-border-radius;
+        > * {
+            pointer-events: none;
         }
     }
 
     .cereal-select-dropdown {
         list-style: none;
+        border: 1px solid $gray-400;
+        border-radius: $select-border-radius;
+        margin-top: -20px;
+        padding-left: 0;
     }
 
     .cereal-select-item {
+        padding: 1rem 2rem;
         cursor: pointer;
+        border: 0px solid transparent;
+
+        &:first-child {
+            border-radius: $select-border-radius $select-border-radius 0 0;
+        }
+
+        &:last-child {
+            border-radius: 0 0 $select-border-radius $select-border-radius;
+        }
+        
+        &:hover{
+            background-color: lighten($primary, 20%);
+        }
 
         &.is-selected {
             color: $primary;
         }
 
+        span {
+            margin-left: 1rem;
+        }
+
         &.is-disabled,
         &[disabled] {
-            cursor:     not-allowed;
-            opacity:    $btn-disabled-opacity;
-            box-shadow: none;
+            cursor:          not-allowed;
+            color:          $select-disabled-item-color;
+
+            &:hover {
+                background-color: transparent;
+            }
+
             > * {
                 pointer-events: none;
             }
@@ -40,17 +70,34 @@
     }
 }
 
+.cereal-select.menu-is-open {
+    .icon-wrapper {
+      transform: rotate(180deg) !important;
+    }  
+}
+
 .multiple-selected-tags {
     position: absolute;
-    top: 0.8rem;
-    margin: 0 0.8rem;
+    z-index: 100;
+    top: 0.4rem;
+    margin: 0 0.7rem;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 
     .selected-tags {
-        border: 1px solid lighten($primary, 30%);
-        background-color: lighten($primary, 10%);
+        border:             $selected-tag-border;
+        background-color:   $selected-tag-bg;
         color: $white;
         padding: 0.3rem 1.2rem;
-        margin: 0 0.3rem;
+        margin-left: 0.3rem;
         border-radius: 0.4rem;
     }
+
+    .selected-tags-icon{
+        margin-left: 0.5rem;
+        cursor:      pointer;
+    }
+
 }
