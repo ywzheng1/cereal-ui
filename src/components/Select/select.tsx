@@ -1,4 +1,4 @@
-import React, { FC, useState, createContext, FunctionComponentElement } from 'react'
+import React, { FC, useState, useRef, useEffect, createContext, FunctionComponentElement } from 'react'
 import classNames from 'classnames'
 import { OptionProps } from './option'
 import Input from '../Input/input'
@@ -37,6 +37,9 @@ export const Select: FC<SelectProps> = (props) => {
         children
     } = props
 
+    const containerWidth = useRef(0)
+    const containerRef = useRef<HTMLInputElement>(null)
+
     const [ menuOpen, setOpen ] = useState(false)
     const [ value, setValue ] = useState(typeof defaultValue === 'string' ? defaultValue : '')
     const [ selectedValues, setSelectedValues ] = useState<string[]>(Array.isArray(defaultValue)? defaultValue :[])
@@ -62,6 +65,12 @@ export const Select: FC<SelectProps> = (props) => {
             onChange(value, [...selectedValues, value])
         }
     }
+    
+    useEffect(() => {
+        if (containerRef.current) {
+          containerWidth.current = containerRef.current.getBoundingClientRect().width
+        }
+      })
 
     const passedContext:ISelectContext = {
         multiple,
@@ -99,38 +108,39 @@ export const Select: FC<SelectProps> = (props) => {
     }
 
     return(
-
-        <div className={classes} onClick={handleClick}>
-            <Input
-                placeholder={placeholder && placeholder}
-                value={multiple ? '' : value}
-                readOnly
-                name={name}
-                icon="angle-down"
-            />
-            <SelectContext.Provider value={passedContext}>
-                <Transition 
-                    in={menuOpen}
-                    animation="zoom-in-top"
-                    timeout={300}
-                >
-                    <ul className='cereal-select-dropdown'>
-                        {renderChildren()}
-                    </ul>
-                </Transition>
-            </SelectContext.Provider>
-            {
-                multiple && 
-                <div className='multiple-selected-tags'>
-                    {selectedValues.map(value => {
-                        return (
-                            <span className='selected-tags'>{value} 
-                            <Icon className='selected-tags-icon' icon="times" onClick={() => handleOptionClick(value,true)}/>
-                            </span>
-                        )
-                    })}
-                </div>
-            }
+        <div className={classes} >
+            <div onClick={handleClick}>
+                <Input
+                    placeholder={placeholder}
+                    value={value}
+                    readOnly
+                    name={name}
+                    icon="angle-down"
+                />
+            </div>
+                <SelectContext.Provider value={passedContext}>
+                    <Transition 
+                        in={menuOpen}
+                        animation="zoom-in-top"
+                        timeout={300}
+                    >
+                        <ul className='cereal-select-dropdown'>
+                            {renderChildren()}
+                        </ul>
+                    </Transition>
+                </SelectContext.Provider>
+                {
+                    multiple && 
+                    <div className='multiple-selected-tags' style={{maxWidth: containerWidth.current - 32}}>
+                        {selectedValues.map(value => {
+                            return (
+                                <span className='selected-tags'>{value} 
+                                <Icon className='selected-tags-icon' icon="times" onClick={() => handleOptionClick(value,true)}/>
+                                </span>
+                            )
+                        })}
+                    </div>
+                }
         </div>
     )
 }

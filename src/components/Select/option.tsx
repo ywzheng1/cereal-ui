@@ -28,7 +28,6 @@ export const Option: FC<OptionProps> = ({index, value, label, disabled, children
     }
 
     return(
-        
         <li key={index} className={classes} onClick={(e) => handleClick(e, value, isSelected)}>
             {children || (label? label: value)}
             { context.multiple && isSelected && <span> <Icon icon="check" /> </span>}
