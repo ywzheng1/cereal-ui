@@ -2,6 +2,12 @@ import React from 'react'
 import { render, RenderResult, fireEvent, wait, cleanup } from '@testing-library/react'
 import { AutoComplete, AutoCompleteProps, DataSourceType } from './autoComplete'
 
+jest.mock('../Icon/icon', () => {
+    return (props: any) => {
+        return <span onClick={props.onClick}>{props.icon}</span>
+    }
+})
+
 const testArray = [
     {value: 'ab', number: 11},
     {value: 'abc', number: 1},

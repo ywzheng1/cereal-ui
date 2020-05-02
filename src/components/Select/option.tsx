@@ -5,8 +5,11 @@ import Icon from '../Icon/icon'
 
 export interface OptionProps {
     index?:    string;
+    /** Value for select item, this value can't be duplicate */
     value:     string;
+    /** Label for selection, if empty, will use value as label */
     label?:    string;
+    /** If the select item is not able to click */
     disabled?: boolean;
 }
 
@@ -21,7 +24,6 @@ export const Option: FC<OptionProps> = ({index, value, label, disabled, children
     })
 
     const handleClick = (e: React.MouseEvent, value: string, isSelected: boolean) => {
-        console.log(isSelected)
         if(context.onSelect && !disabled) {
             context.onSelect(value, isSelected)
         }
@@ -34,5 +36,7 @@ export const Option: FC<OptionProps> = ({index, value, label, disabled, children
         </li>
     )
 }
+
+Option.displayName = 'Option'
 
 export default Option;
