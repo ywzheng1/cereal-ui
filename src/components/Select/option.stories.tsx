@@ -41,8 +41,12 @@ const diabledSelect = () => (
     </Select>
 )
 
+const disabledSelectText = `
+Set input to disabled. Doesn't allow pointer event.
+`
+
 storiesOf('Select Component', module)
     .add('Select', basicSelect)
     .add('Default Selected', selectWithDefaultValue)
     .add('Multiple Select', multipleSelect)
-    .add('Disabled', diabledSelect)
+    .add('Disabled', diabledSelect, {info: { source: true, text: disabledSelectText}})

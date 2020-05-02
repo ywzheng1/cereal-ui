@@ -7,13 +7,21 @@ import Transition from '../Transition/transition'
 import Icon from '../Icon/icon'
 
 export interface SelectProps {
-    disabled?: boolean;
+    /** If input is disabled or not */
+    disabled?:     boolean;
+    /** Set default selected value */
     defaultValue?: string | string[];
+    /** Allow custom className */
     className?:    string;
+    /** Add a placeholder text to input component */
     placeholder?:  string;
+    /** If allow multiple selection */
     multiple?:     boolean;
+    /** Select input's name property */
     name?:         string;
+    /** A callback function when selected value changes */
     onChange?:        (selectedValue: string, selectedValues: string[]) => void;
+    /** A callback function when dropdown show or hide */
     onVisibleChange?: (visible: boolean) => void;
 }
 
@@ -26,10 +34,26 @@ interface ISelectContext {
 
 export const SelectContext = createContext<ISelectContext>({selectedValues: []})
 
+
+/**
+ * ### ✨ Select Component
+ * Popup a dropdown list for user to pick, replaced native select  
+ * Also support multi-select option  
+ * When dropdown opened, click outside also allow user to close dropdown
+ * 
+ * ### How to import
+ * 
+ * ~~~js
+ * import { Select } from 'cereal-ui'
+ * // Then able to use <Select> and <Option>
+ * ~~~
+ */
+
 export const Select: FC<SelectProps> = (props) => {
     const {
         defaultValue,
         placeholder, 
+        className,
         disabled, 
         multiple, 
         name, 
@@ -87,7 +111,7 @@ export const Select: FC<SelectProps> = (props) => {
         onSelect: handleOptionClick
     }
 
-    const classes = classNames('cereal-select', {
+    const classes = classNames('cereal-select', className, {
         'is-disabled': disabled,
         'menu-is-open': menuOpen,
         'is-multiple': multiple 
@@ -98,9 +122,13 @@ export const Select: FC<SelectProps> = (props) => {
             React.Children.map(children, (child, index) => {
                 const childElement = child as FunctionComponentElement<OptionProps>
 
-                return React.cloneElement(childElement, {
-                    index: index.toString()
-                })
+                if (childElement.type.displayName === 'Option') {
+                    return React.cloneElement(childElement, {
+                        index: `select-${index}`
+                    })
+                } else {
+                    console.error("Warning: select component has a child which is not a Option component")
+                }
             })
         )
     }
@@ -151,6 +179,11 @@ export const Select: FC<SelectProps> = (props) => {
                 }
         </div>
     )
+}
+
+Select.defaultProps = {
+    name: 'cereal-select',
+    placeholder: 'Please Select'
 }
 
 export default Select;
