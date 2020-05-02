@@ -1,4 +1,4 @@
-import React, { FC, useState, createContext, SelectHTMLAttributes, FunctionComponentElement } from 'react'
+import React, { FC, useState, createContext, FunctionComponentElement } from 'react'
 import classNames from 'classnames'
 import { OptionProps } from './option'
 import Input from '../Input/input'
@@ -55,6 +55,7 @@ export const Select: FC<SelectProps> = (props) => {
             } else {
                 !selectedValues.includes(value) && setSelectedValues([...selectedValues, value])
             }
+           
         }
 
         if(onChange) {
@@ -124,7 +125,7 @@ export const Select: FC<SelectProps> = (props) => {
                     {selectedValues.map(value => {
                         return (
                             <span className='selected-tags'>{value} 
-                            <Icon icon="times" onClick={() => handleOptionClick(value,true)}/>
+                            <Icon className='selected-tags-icon' icon="times" onClick={() => handleOptionClick(value,true)}/>
                             </span>
                         )
                     })}
