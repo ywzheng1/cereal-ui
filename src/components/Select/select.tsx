@@ -62,6 +62,7 @@ export const Select: FC<SelectProps> = (props) => {
         children
     } = props
 
+    const input = useRef<HTMLInputElement>(null)
     const containerWidth = useRef(0)
     const containerRef = useRef<HTMLInputElement>(null)
 
@@ -77,19 +78,29 @@ export const Select: FC<SelectProps> = (props) => {
             setValue('')
         }
 
+        let updatedValues = [value]
+
         if(multiple) {
-            if (isSelect) {
-                setSelectedValues(selectedValues.filter(v => v !== value))
-            } else {
-                !selectedValues.includes(value) && setSelectedValues([...selectedValues, value])
-            }
-           
+            updatedValues = isSelect ? selectedValues.filter((v) => v !== value) :  [...selectedValues, value]
+            setSelectedValues(updatedValues)
         }
 
         if(onChange) {
-            onChange(value, [...selectedValues, value])
+            onChange(value, updatedValues)
         }
     }
+
+    useEffect(() => {
+        // focus input
+        if (input.current) {
+          input.current.focus()
+          if (multiple && selectedValues.length > 0) {
+            input.current.placeholder = ''
+          } else {
+            if (placeholder) input.current.placeholder = placeholder
+          }
+        }
+      }, [selectedValues, multiple, placeholder])
     
     useEffect(() => {
         if (containerRef.current) {
@@ -144,9 +155,10 @@ export const Select: FC<SelectProps> = (props) => {
     }
 
     return(
-        <div className={classes} ref={containerRef}>
-            <div onClick={handleClick}>
+        <div className={classes} ref={containerRef} data-testid="test-select">
+            <div onClick={handleClick} data-testid="test-select-input">
                 <Input
+                    ref={input}
                     placeholder={placeholder}
                     value={value}
                     readOnly
@@ -154,29 +166,33 @@ export const Select: FC<SelectProps> = (props) => {
                     icon="angle-down"
                 />
             </div>
-                <SelectContext.Provider value={passedContext}>
-                    <Transition 
-                        in={menuOpen}
-                        animation="zoom-in-top"
-                        timeout={300}
-                    >
-                        <ul className='cereal-select-dropdown'>
-                            {renderChildren()}
-                        </ul>
-                    </Transition>
-                </SelectContext.Provider>
-                {
-                    multiple && 
-                    <div className='multiple-selected-tags' style={{maxWidth: containerWidth.current - 32}}>
-                        {selectedValues.map(value => {
-                            return (
-                                <span className='selected-tags'>{value} 
-                                <Icon className='selected-tags-icon' icon="times" onClick={() => handleOptionClick(value,true)}/>
-                                </span>
-                            )
-                        })}
-                    </div>
-                }
+            <SelectContext.Provider value={passedContext}>
+                <Transition 
+                    in={menuOpen}
+                    animation="zoom-in-top"
+                    timeout={300}
+                >
+                    <ul className='cereal-select-dropdown'>
+                        {renderChildren()}
+                    </ul>
+                </Transition>
+            </SelectContext.Provider>
+            {
+                multiple && 
+                <div 
+                    className='multiple-selected-tags' 
+                    style={{maxWidth: containerWidth.current - 32}}
+                    data-testid="test-selected-tags"
+                >
+                    {selectedValues.map(value => {
+                        return (
+                            <span className='selected-tags' key={`select-item-${value}`}>{value} 
+                            <Icon className='selected-tags-icon' icon="times" onClick={() => handleOptionClick(value,true)}/>
+                            </span>
+                        )
+                    })}
+                </div>
+            }
         </div>
     )
 }

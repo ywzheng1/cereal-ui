@@ -24,7 +24,6 @@ export const Option: FC<OptionProps> = ({index, value, label, disabled, children
     })
 
     const handleClick = (e: React.MouseEvent, value: string, isSelected: boolean) => {
-        console.log(isSelected)
         if(context.onSelect && !disabled) {
             context.onSelect(value, isSelected)
         }
