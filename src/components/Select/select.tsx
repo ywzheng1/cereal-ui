@@ -73,7 +73,10 @@ export const Select: FC<SelectProps> = (props) => {
     const handleOptionClick = (value: string, isSelect?: boolean) =>{
         if(!multiple) {
             setOpen(false)
-            isSelect ? setValue('') : setValue(value)
+            setValue(value)
+            if (onVisibleChange) {
+                onVisibleChange(false)
+            }
         } else {
             setValue('')
         }

@@ -2,6 +2,12 @@ import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
 import Alert, { AlertType, BaseAlertProps } from './alert'
 
+jest.mock('../Icon/icon', () => {
+    return (props: any) => {
+        return <span onClick={props.onClick}>{props.icon}</span>
+    }
+})
+
 const defaultProps: BaseAlertProps = {
     message: 'alert message',
     alertType: AlertType.Default,
