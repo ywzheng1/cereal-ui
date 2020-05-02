@@ -1,5 +1,6 @@
 import React, { FC, useState, useRef, useEffect, createContext, FunctionComponentElement } from 'react'
 import classNames from 'classnames'
+import useClickOutside from '../../hooks/useClickOutside'
 import { OptionProps } from './option'
 import Input from '../Input/input'
 import Transition from '../Transition/transition'
@@ -70,7 +71,14 @@ export const Select: FC<SelectProps> = (props) => {
         if (containerRef.current) {
           containerWidth.current = containerRef.current.getBoundingClientRect().width
         }
-      })
+    })
+
+    useClickOutside(containerRef, () => { 
+        setOpen(false)
+        if (onVisibleChange && menuOpen) {
+            onVisibleChange(false)
+        }
+    })
 
     const passedContext:ISelectContext = {
         multiple,
@@ -108,7 +116,7 @@ export const Select: FC<SelectProps> = (props) => {
     }
 
     return(
-        <div className={classes} >
+        <div className={classes} ref={containerRef}>
             <div onClick={handleClick}>
                 <Input
                     placeholder={placeholder}
