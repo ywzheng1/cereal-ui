@@ -2,6 +2,8 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { Upload, UploadFile } from './upload'
+import Button from '../Button/button'
+import Icon from '../Icon/icon'
 
 const defaultFileList: UploadFile[] = [
     { uid: '123', size: 1234, name: 'hello.md', status: 'uploading', percent: 33},
@@ -21,7 +23,9 @@ const SimpleUpload = () => {
             data={{'key': 'value'}}
             headers={{'X-Powered-By': 'cereal-ui'}}
             multiple={true}
-        />
+        >
+            <Button btnType='primary'>Upload File</Button>
+        </Upload>
     )
 }
 
@@ -44,7 +48,9 @@ const UploadCheckSize = () => {
             action='https://www.mocky.io/v2/5185415ba171ea3a00704eed'
             onChange={action('change')}
             beforeUpload={checkFileSize}
-        />
+        >
+            <Button btnType='primary'>Can't be Greater than 50KB</Button>
+        </Upload>
     )
 }
 
@@ -72,6 +78,23 @@ const filePromise = (file: File)  => {
 ~~~
 `
 
+const dragDropUpload = () => (
+    <Upload
+        action='https://www.mocky.io/v2/5185415ba171ea3a00704eed'
+        onProgress={action('progress')}
+        onSuccess={action('success')}
+        onError={action('error')}
+        onRemove={action('removed')}
+        name='fileName'
+        drag={true}
+    >
+        <Icon icon='upload' size='3x' theme='secondary' />
+        <br/>
+        <p>Drag file ove to upload</p>
+    </Upload>
+)
+
 storiesOf('Upload', module)
     .add('Upload', SimpleUpload)
     .add('Check file size', UploadCheckSize, {info: { source: true, text: uploadCheckSizeText}})
+    .add('Drag Upload', dragDropUpload)
