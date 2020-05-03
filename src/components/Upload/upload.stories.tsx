@@ -16,8 +16,11 @@ const SimpleUpload = () => {
             onProgress={action('progress')}
             onSuccess={action('success')}
             onError={action('error')}
-            defaultFileList={defaultFileList}
             onRemove={action('removed')}
+            name='fileName'
+            data={{'key': 'value'}}
+            headers={{'X-Powered-By': 'cereal-ui'}}
+            multiple={true}
         />
     )
 }
