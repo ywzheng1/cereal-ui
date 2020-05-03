@@ -1,7 +1,13 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
-import { Upload } from './upload'
+import { Upload, UploadFile } from './upload'
+
+const defaultFileList: UploadFile[] = [
+    { uid: '123', size: 1234, name: 'hello.md', status: 'uploading', percent: 33},
+    { uid: '132', size: 1234, name: 'xyz.md', status: 'success', percent: 33},
+    { uid: '144', size: 1234, name: 'eihghw.md', status: 'error', percent: 33}
+]
 
 const SimpleUpload = () => {
     return (
@@ -10,6 +16,8 @@ const SimpleUpload = () => {
             onProgress={action('progress')}
             onSuccess={action('success')}
             onError={action('error')}
+            defaultFileList={defaultFileList}
+            onRemove={action('removed')}
         />
     )
 }
