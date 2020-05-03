@@ -12,7 +12,7 @@ const defaultFileList: UploadFile[] = [
 const SimpleUpload = () => {
     return (
         <Upload
-            action='https://jsonplaceholder.typicode.com/posts/'
+            action='https://www.mocky.io/v2/5185415ba171ea3a00704eed'
             onProgress={action('progress')}
             onSuccess={action('success')}
             onError={action('error')}
@@ -38,7 +38,7 @@ const filePromise = (file: File)  => {
 const UploadCheckSize = () => {
     return (
         <Upload
-            action='https://jsonplaceholder.typicode.com/posts/'
+            action='https://www.mocky.io/v2/5185415ba171ea3a00704eed'
             onChange={action('change')}
             beforeUpload={checkFileSize}
         />

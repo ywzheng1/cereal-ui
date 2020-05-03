@@ -1,5 +1,4 @@
 import React, { FC, useRef, ChangeEvent, useState } from 'react'
-import classNames from 'classnames'
 import axios from 'axios'
 import Button from '../Button/button'
 import UploadList from './uploadList'
