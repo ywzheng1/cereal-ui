@@ -36,13 +36,23 @@ import { storiesOf } from '@storybook/react'
 // `
 
 const markdownText = `
-    ### Welcome to component display
+### 🍪 Welcome to Cereal-UI
+Cereal-UI provides basic stylish react components.
+
+## What this project uses:
+- 🔥 React with React hooks
+- 🔥 Typescript
+- 🚨 Jest and React Testing Library for unit tests
+- 📚 Storybook for local documentation and export to static page
+- 📚 React-doc-gen for auto documentation generation
+- 📦  Third party libraries (react-fontawsome, react0transition-group)
+- 🌹 Styles (Sass).
 `
 
 
 storiesOf('Welcome', module)
   .add('welcome', () => {
     return (
-      <h2>Welcome to my component display</h2>
+      <h3>Welcome to my component display</h3>
     )
   }, { info : { text: markdownText, source: false, }})
