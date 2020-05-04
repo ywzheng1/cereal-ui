@@ -1,17 +1,20 @@
 import React, { FC, useRef, ChangeEvent, useState } from 'react'
 import axios from 'axios'
-import Button from '../Button/button'
 import UploadList from './uploadList'
 import Dragger from './dragger'
 
 export interface UploadProps {
-    /** Required, which endpoint you want the file send to*/
+    /**Uploading URL */
     action: string;
+    /** Use defaultFileList for uploaded files when page init */
     defaultFileList?: UploadFile[];
+    /** Hook function which will be executed before uploading. Uploading will be stopped with false or a rejected Promise returned. */
     beforeUpload? : (file: File) => boolean | Promise<File>;
+    /** During upload, set progress bar to true or false*/
     onProgress?: (percentage: number, file: UploadFile) => void;
     onSuccess?: (data: any, file: UploadFile) => void;
     onError?: (err: any, file: UploadFile) => void;
+    /** A callback function, can be executed when uploading state is changing */
     onChange?: (file: UploadFile) => void;
     onRemove?: (file: UploadFile) => void;
     /** Add custom HTTP header */
@@ -19,7 +22,7 @@ export interface UploadProps {
     name?: string;
     /** Add custom formData */
     data?: {[key:string]: any};
-    /** If file has cookie */
+    /** ajax upload with cookie sent */
     withCredentials?: boolean;
     /** Accept file types */
     accept?: string;
@@ -41,6 +44,24 @@ export interface UploadFile {
     response?: any;
     error?: any;
 }
+
+/**
+ * ## Upload Component  
+ * Upload file by selecting or dragging.
+ * 
+ * ## When To Use
+ * - Uploading is the process of publishing information (web pages, text, pictures, video, etc.) to a remote server via a web page or upload tool.
+ * - When you need to upload one or more files.
+ * - When you need to show the process of uploading.
+ * - When you need to upload files by dragging and dropping.
+ * 
+ * ### How to import 
+ * 
+ * ~~~js
+ * import { Upload } from 'cereal-ui'
+ * ~~~
+ * 
+ */
 
 export const Upload:FC<UploadProps> = (props) => {
 
@@ -151,7 +172,8 @@ export const Upload:FC<UploadProps> = (props) => {
                 let percentage = Math.round((e.loaded * 100) / e.total) || 0
                 if (percentage < 100) {
                     updateFileList(_file, { percent: percentage, status: 'uploading'})
-
+                    _file.status = 'uploading'
+                    _file.percent = percentage
                     if(onProgress) {
                         onProgress(percentage, _file)
                     }
@@ -160,6 +182,8 @@ export const Upload:FC<UploadProps> = (props) => {
         }).then(resp => {
             console.log(resp)
             updateFileList(_file, {status: 'success', response: resp.data})
+            _file.status = 'success'
+            _file.response = resp.data
             if(onSuccess) {
                 onSuccess(resp.data, _file)
             }
@@ -169,6 +193,8 @@ export const Upload:FC<UploadProps> = (props) => {
         }).catch(err => {
             console.log(err)
             updateFileList(_file, { status: 'error', error: err})
+            _file.status = 'error'
+            _file.error = err
             if(onError) {
                 onError(err, _file)
             }

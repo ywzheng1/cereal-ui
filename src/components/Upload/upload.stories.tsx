@@ -1,15 +1,15 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
-import { Upload, UploadFile } from './upload'
+import { Upload } from './upload'
 import Button from '../Button/button'
 import Icon from '../Icon/icon'
 
-const defaultFileList: UploadFile[] = [
-    { uid: '123', size: 1234, name: 'hello.md', status: 'uploading', percent: 33},
-    { uid: '132', size: 1234, name: 'xyz.md', status: 'success', percent: 33},
-    { uid: '144', size: 1234, name: 'eihghw.md', status: 'error', percent: 33}
-]
+// const defaultFileList: UploadFile[] = [
+//     { uid: '123', size: 1234, name: 'hello.md', status: 'uploading', percent: 33},
+//     { uid: '132', size: 1234, name: 'xyz.md', status: 'success', percent: 33},
+//     { uid: '144', size: 1234, name: 'eihghw.md', status: 'error', percent: 33}
+// ]
 
 const SimpleUpload = () => {
     return (
@@ -37,10 +37,10 @@ const checkFileSize = (file:File) => {
     return true;
 }
 
-const filePromise = (file: File)  => {
-    const newFile = new File([file], 'new_name.zip', {type: file.type})
-    return Promise.resolve(newFile)
-}
+// const filePromise = (file: File)  => {
+//     const newFile = new File([file], 'new_name.zip', {type: file.type})
+//     return Promise.resolve(newFile)
+// }
 
 const UploadCheckSize = () => {
     return (
@@ -93,6 +93,7 @@ const dragDropUpload = () => (
         <p>Drag file ove to upload</p>
     </Upload>
 )
+
 
 storiesOf('Upload', module)
     .add('Upload', SimpleUpload)
