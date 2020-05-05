@@ -39,14 +39,12 @@ const generateSelect = ( props: SelectProps ) => {
 }
 
 let wrapper: RenderResult, 
-    selectElement: HTMLElement, 
     inputElement: HTMLInputElement
 
 describe('Select Component', () =>{
 
     beforeEach(() => {
         wrapper         = render(generateSelect(testProps))
-        selectElement   = wrapper.getByTestId('test-select')
         inputElement    = wrapper.getByPlaceholderText('Please Select') as HTMLInputElement
     })
 
