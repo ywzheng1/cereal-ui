@@ -4,7 +4,6 @@ A React UI components library.
 
 :link: To view already built components in storybook, checkout this storybook link: [link](https://ywzheng1.github.io/cereal-ui/?path=/story/welcome--welcome)
 <br />  
-npm package link: https://www.npmjs.com/package/cereal-ui
 
 
 ## :rocket: Install
