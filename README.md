@@ -1,26 +1,21 @@
 # :cookie: Cereal UI
-React UI components.
+A React UI components library.
 <br/>
 
-:link: To view already built components in storybook, checkout this link: [link](https://ywzheng1.github.io/cereal-ui/?path=/story/welcome--welcome)
+:link: To view already built components in storybook, checkout this storybook link: [link](https://ywzheng1.github.io/cereal-ui/?path=/story/welcome--welcome)
 <br />  
-####  :rocket: Installation:  
-In the project directory:
+npm package link: // https://www.npmjs.com/package/cereal-ui
 
-`npm install` : install all necessary node modules
 
-`npm start` : runs the app in the development mode. Open http://localhost:3000 to view it in the browser.
-
-`npm run storybook` : start the storybook on your local
-
-`npm test` : run unit test
-
-<br />  
+## :rocket: Install
+```
+npm i cereal-ui
+```
 
 ## Usages
 ```
 // import component
-import { Button } from 'path/to/component'
+import { Button } from 'cereal-ui'
 ```
 
 
