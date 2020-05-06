@@ -13,6 +13,7 @@ import Transition from './components/Transition/transition'
 import Input from './components/Input/input'
 import Select from './components/Select/select'
 import Option from './components/Select/option'
+import Switch from './components/Switch/switch'
 
 import './App.scss';
 
@@ -24,6 +25,7 @@ function App() {
 
 	return (
 		<div className='app'>
+			<Switch />
 			<div className='buttons'>
 				<h1>Buttons</h1>
 				<div className='button-group'>

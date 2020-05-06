@@ -8,16 +8,16 @@ A React UI components library.
 ### Installation
 
 ~~~javascript
-npm install vikingship --save
+npm install cereal-ui --save
 ~~~  
 
 ### Usage
 
 ~~~javascript
 // import styles
-import 'vikingship/dist/index.css'
+import 'cereal-ui/dist/index.css'
 // Import component
-import { Button } from 'vikingship'
+import { Button } from 'cereal-ui'
 ~~~
 
 ## What this project uses:
