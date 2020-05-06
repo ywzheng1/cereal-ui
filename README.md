@@ -1,7 +1,11 @@
 # :cookie: Cereal UI
-A React UI components library.
+A React UI components library.  
 <br/>
+[![Build Status](https://travis-ci.com/ywzheng1/cereal-ui.svg?branch=master)](https://travis-ci.com/ywzheng1/cereal-ui)
+<br/><br/>
 
+
+## :mag: Preview
 :link: To view already built components in storybook, checkout this storybook link: [link](https://ywzheng1.github.io/cereal-ui/?path=/story/welcome--welcome)
 <br />  
 
