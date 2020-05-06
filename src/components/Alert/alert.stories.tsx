@@ -16,6 +16,22 @@ const basictAlert = () => (
 const differentTypesAlert = () => (
     <>
         <Alert 
+            alertType={AlertType.White} 
+            message="this is alert message"
+            description='this is a description'
+            closable={true}
+            onClose={action('Closed')}
+        />
+
+        <Alert 
+            alertType={AlertType.Black} 
+            message="this is alert message"
+            description='this is a description'
+            closable={true}
+            onClose={action('Closed')}
+        />
+
+        <Alert 
             alertType={AlertType.Success} 
             message="this is alert message"
             closable={true}

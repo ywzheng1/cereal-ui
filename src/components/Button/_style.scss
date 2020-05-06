@@ -43,7 +43,7 @@
 }
 
 .btn-default {
-    @include button-style($gray-400, $white, $body-color, $white, $primary, $primary)
+    @include button-style($gray-900, $white, $white, $gray-100, $gray-700, $gray-700)
 }
 
 .btn-link {

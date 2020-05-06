@@ -24,7 +24,15 @@
 }
 
 .alert-default {
-    @include alert-style($white, $gray-600, $gray-600)
+    @include alert-style($primary, $white, $white)
+}
+
+.alert-white {
+    @include alert-style($white, $gray-700, $gray-700)
+}
+
+.alert-black {
+    @include alert-style($gray-900, $white, $white)
 }
 
 .alert-success {

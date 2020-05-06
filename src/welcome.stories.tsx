@@ -26,7 +26,7 @@ import { Button } from 'vikingship'
 - 🚨 Jest and React Testing Library for unit tests
 - 📚 Storybook for local documentation and export to static page
 - 📚 React-doc-gen for auto documentation generation
-- 📦  Third party libraries (react-fontawsome, react0transition-group)
+- 📦 Third party libraries (react-fontawsome, react0transition-group)
 - 🌹 Styles (Sass).
 `
 
