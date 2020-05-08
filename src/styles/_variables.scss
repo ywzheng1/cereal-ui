@@ -359,3 +359,26 @@ $progress-bg:                       $gray-200 !default;
 $progress-border-radius:            $border-radius !default;
 $progress-bar-color:                $white !default;
 $progress-bar-transition:           width .6s ease !default;
+
+
+
+/* -------------- Switch -------------- */
+
+/* progress bar */
+$switch-width:                      72px !default;
+$switch-height:                     34px !default;
+$switch-width-sm:                   55px !default;
+$switch-height-sm:                  24px !default;
+$switch-border-radius:              $switch-height !default;
+$switch-background-color:           $gray-400 !default;
+
+$switch-slider-width:               26px !default;
+$switch-slider-height:              26px !default;
+$switch-slider-width-sm:            16px !default;
+$switch-slider-height-sm:           16px !default;
+$switch-slider-left:                4px !default;
+$switch-slider-bottom:              4px !default;
+$switch-slider-border-radius:       50% !default;
+
+$switch-transform-px:               $switch-width - $switch-slider-width - ($switch-slider-left*2) !default;
+$switch-transform-px-sm:            $switch-width-sm - $switch-slider-width-sm - ($switch-slider-left*2) !default;
