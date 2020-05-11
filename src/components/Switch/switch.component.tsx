@@ -21,7 +21,15 @@ export interface SwitchProps {
 }
 
 export const Switch: FC<SwitchProps> = (props) => {
-    const { checked, className, disabled, onChange, checkedChildren, unCheckedChildren, size } = props
+    const { 
+        checked, 
+        className, 
+        disabled, 
+        onChange, 
+        checkedChildren, 
+        unCheckedChildren, 
+        size 
+    } = props
 
     const [ check, setCheck ] = useState(checked ? checked : false)
 
@@ -41,13 +49,21 @@ export const Switch: FC<SwitchProps> = (props) => {
     }
     
     return(
-        <label className={classes} onChange={(e) => onSwitchChange(disabled, e)} >
+        <label 
+            className={classes} 
+            onChange={(e) => onSwitchChange(disabled, e)} 
+        >
             <input type="checkbox" checked={check} />
             <span className="cereal-slider round">
                 {check 
                 ? 
-                <span className='checked-children'>{checkedChildren}</span> 
-                : <span className='unchecked-children'>{unCheckedChildren}</span>
+                <span className='checked-children'>
+                    {checkedChildren}
+                </span> 
+                : 
+                <span className='unchecked-children'>
+                    {unCheckedChildren}
+                </span>
                 }
             </span>
         </label>
