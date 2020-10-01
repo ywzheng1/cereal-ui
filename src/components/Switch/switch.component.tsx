@@ -47,7 +47,7 @@ export const Switch: FC<SwitchProps> = (props) => {
             }
         }
     }
-    
+
     return(
         <label 
             className={classes} 
@@ -56,7 +56,7 @@ export const Switch: FC<SwitchProps> = (props) => {
             <input type="checkbox" checked={check} />
             <span className="cereal-slider round">
                 {check 
-                ? 
+                ?
                 <span className='checked-children'>
                     {checkedChildren}
                 </span> 
