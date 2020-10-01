@@ -27,7 +27,7 @@ export interface AutoCompleteProps extends Omit<InputProps, 'onSelect'> {
  * 
  * #### How to import 
  * 
- * ~~~js
+ * ~~~js  
  * import { AutoComplete } from 'cereal-ui'
  * ~~~
  */
